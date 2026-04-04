@@ -29,3 +29,19 @@
 2. Файл docker-compose.yml с установкой PostgreSQL и заполненными данными из файлов mock_data(*).csv.
 3. Скрипты DDL (SQL) создания таблиц фактов и измерений в соответствии с моделью снежинка/звезда.
 4. Скрипты DML (SQL) заполнения таблиц фактов и измерений из исходных данных.
+
+Инструкция по запуску
+```bash 
+git clone https://github.com/gbbelskij/BDSnowflake
+cd BDSnowflake
+docker compose up
+```
+докер поднимает Postgre на порту :5432
+
+в DBeaver подключиться к бд на этом порту
+
+закинуть через инструмент импорта csv DBeaver исходные данные
+
+Применить sql скрипты в терминале DBeaver из файлов в следующем порядке
+1. ddl_dim.sql; ddl_facts.sql
+2. dml_dim.sql; dml_facts.sql
